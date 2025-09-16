@@ -1,42 +1,197 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
+/* --- Main Layout & Navigation --- */
+.container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 2rem;
+}
+
+nav a h1 {
+  margin: 0;
+  color: var(--text-color);
+  font-size: 1.75rem;
+}
+
+.create-link {
+  font-weight: 500;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  transition: background-color 0.2s ease;
+}
+
+.create-link:hover {
+  background-color: var(--primary-hover);
+  color: white;
+}
+
+/* --- Poll List --- */
+.poll-list ul {
+  list-style-type: none;
+}
+
+.poll-list li {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  margin-bottom: 1rem;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.poll-list li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.poll-list li a {
+  display: block;
+  padding: 1rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+/* --- Create Poll Form --- */
+.create-poll form {
+  background: var(--surface-color);
   padding: 2rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+/* --- Buttons --- */
+.btn-primary, .btn-secondary, .btn-vote {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+  margin-top: 1rem;
+}
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+}
+
+.btn-secondary {
+  background-color: var(--surface-color);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  margin-top: 0.5rem;
+}
+.btn-secondary:hover {
+  background-color: var(--background-color);
+}
+
+/* --- Poll Detail & Results --- */
+.poll-detail h2 {
   text-align: center;
+  font-size: 2rem;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.poll-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+  margin-top: 2rem;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.vote-options .btn-vote {
+  margin-bottom: 0.75rem;
+  text-align: left;
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  color: var(--primary-color);
+}
+.vote-options .btn-vote:hover {
+  background-color: #e9ecef;
+  border-color: #adb5bd;
+}
+
+.result-bar-container {
+  margin-bottom: 1rem;
+}
+
+.result-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.result-bar {
+  width: 100%;
+  height: 24px;
+  background-color: #e9ecef;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.result-bar-fill {
+  height: 100%;
+  background-color: var(--primary-color);
+  border-radius: 4px 0 0 4px;
+  transition: width 0.5s ease-in-out;
+  text-align: right;
+  color: white;
+  font-size: 0.8rem;
+  line-height: 24px;
+  padding-right: 5px;
+}
+
+.total-votes {
+  margin-top: 1.5rem;
+  font-weight: 600;
+  text-align: right;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 600px) {
+  .poll-container {
+    grid-template-columns: 1fr;
   }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
