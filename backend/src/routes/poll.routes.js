@@ -5,7 +5,7 @@ import {
     voteOnPoll
 } from '../controllers/poll.controller.js';
 
-const router = express.router();
+const router = express.Router();
 
 router.get('/', getAllPolls);
 router.post('/', createPoll);
