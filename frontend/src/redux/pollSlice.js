@@ -1,6 +1,9 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
+// Configure axios with base URL
+axios.defaults.baseURL = 'http://localhost:5001';
+
 // Async thunk to fetch all polls
 export const fetchPolls = createAsyncThunk('polls/fetchPolls', async () => {
   const response = await axios.get('/api/polls');
